@@ -47,6 +47,16 @@ namespace VRTK
         public Transform touchpad;
         [Tooltip("The transform for the position of the app menu button on the controller (this is usually found in `Model/button/attach`.")]
         public Transform appMenu;
+        [Tooltip("Display or hide the specific tooltip")]
+        public bool enableGrab = false;
+        [Tooltip("Display or hide the specific tooltip")]
+        public bool enableTrigger = false;
+        [Tooltip("Display or hide the specific tooltip")]
+        public bool enableTouchpad = false;
+        [Tooltip("Display or hide the specific tooltip")]
+        public bool enableAppMenu = false;
+        [Tooltip("Display or hide the specific tooltip")]
+
 
         private bool triggerInitialised = false;
         private bool gripInitialised = false;
@@ -195,7 +205,10 @@ namespace VRTK
         {
             if (VRTK_DeviceFinder.GetControllerIndex(transform.parent.gameObject) == e.controllerIndex)
             {
-                ToggleTips(true);
+                ToggleTips(enableGrab, TooltipButtons.GripTooltip);
+                ToggleTips(enableTouchpad, TooltipButtons.TouchpadTooltip);
+                ToggleTips(enableTrigger, TooltipButtons.TriggerTooltip);
+                ToggleTips(enableAppMenu, TooltipButtons.AppMenuTooltip);
             }
         }
 
