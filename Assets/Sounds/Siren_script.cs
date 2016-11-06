@@ -5,7 +5,8 @@ public class Siren_script : MonoBehaviour {
 
     public float speed;
     public Vector3 Target;
-
+    public float Start_min;
+    public float Start_max;
 	// Use this for initialization
 	void Start () {
 
@@ -33,7 +34,7 @@ public class Siren_script : MonoBehaviour {
 
     float GetRandom()
     {
-        float random_secs = Random.Range(5.0f, 20.0f);
+        float random_secs = Random.Range(Start_min, Start_max);
         Debug.Log("Seconds:" + random_secs);
         return random_secs;
     }
